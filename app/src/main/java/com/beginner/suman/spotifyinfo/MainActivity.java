@@ -1,11 +1,14 @@
 package com.beginner.suman.spotifyinfo;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -43,6 +46,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= 23) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+            }
+            else{
+                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},266);
+            }
+        }
         ins = this;
         setContentView(R.layout.activity_main);
         listViewSongs = (ListView) findViewById(R.id.list);
@@ -123,7 +134,7 @@ public class MainActivity extends Activity {
         @Override
         protected Void doInBackground(String... strings) {
             String URL = strings[0];
-            URL.replace(" ","_");
+            URL = URL.replace(" ","_");
             try {
                 Document doc = Jsoup.connect("http://musicwhales.net/tracks/"+URL+".html").get();
                 Elements results = doc.select("ul.results > li");
@@ -177,7 +188,7 @@ public class MainActivity extends Activity {
                         URL url = new URL(links.get(i));
                         URLConnection urlConnection = url.openConnection();
                         urlConnection.connect();
-                        int file_size = (int) (urlConnection.getContentLength())/1024;
+                        int file_size = (urlConnection.getContentLength())/1024;
                         sizes.set(i, Integer.toString(file_size)+"KB");
                     }catch (Exception e){
                         e.printStackTrace();
