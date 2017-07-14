@@ -48,7 +48,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-
             }
             else{
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},266);
