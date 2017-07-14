@@ -1,0 +1,43 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity"
+    android:paddingTop="25dp">
+    <EditText
+        android:id="@+id/url"
+        android:layout_width="270dp"
+        android:hint="Spotify URL"
+        android:layout_height="wrap_content"
+        android:maxHeight="80dp"
+        android:layout_centerHorizontal="true"
+        android:padding="4dp"/>
+    <Button
+        android:id="@+id/buttonSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search"
+        android:layout_below="@id/url"
+        android:layout_centerHorizontal="true" />
+    <RelativeLayout
+        android:layout_below="@id/buttonSearch"
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone">
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"/>
+    </RelativeLayout>
+    <ListView
+        android:layout_below="@id/buttonSearch"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        >
+    </ListView>
+</RelativeLayout>

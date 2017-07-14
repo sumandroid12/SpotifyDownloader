@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:id="@+id/songTitle"
+        android:text="sample text"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="#000000"/>
+    <TextView
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:id="@+id/fileSize"
+        android:text="sample KB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="40dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#000000"/>
+
+</RelativeLayout>
