@@ -133,7 +133,7 @@ public class MainActivity extends Activity {
             String URL = strings[0];
             URL = URL.replace(" ","_");
             try {
-                Document doc = Jsoup.connect("http://musicwhales.net/tracks/"+URL+".html").get();
+                Document doc = Jsoup.connect("http://musicwhale2.net/tracks/"+URL+".html").get();
                 Elements results = doc.select("ul.results > li");
                 for (Element result : results) {
                     Log.d("title",result.select("#xftitle").text());
